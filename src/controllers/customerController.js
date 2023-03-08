@@ -1,8 +1,8 @@
-import validaCpf from "../services/customerService.js";
+import customerService from "../services/customerService.js";
 
 export async function create(req, res) {
   const cliente = req.body;
 
-  const cpf = await validaCpf(cliente.cpf);
-  res.send(cpf);
+  await customerService.create(cliente);
+  res.sendStatus(201);
 }

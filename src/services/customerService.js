@@ -1,8 +1,16 @@
-//criar lógica de cpf aqui
+import customerRepository from "../repositories/customerRepository";
 
-async function validaCpf(cpf) {
-  const cpfSeparado = cpf.split();
-  console.log(cpfSeparado);
+async function create(cliente) {
+  // await validaCpf(cliente.cpf);
+
+  await customerRepository.insert({
+    ...cliente,
+  });
 }
 
-export default validaCpf;
+// async function validaCpf(cpf) {
+//   const cpfSeparado = cpf.split();
+//   console.log(cpfSeparado);
+// }
+
+export default { create };
