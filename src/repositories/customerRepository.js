@@ -2,7 +2,9 @@ import { prisma } from "../config/db.js";
 
 async function insert(nome, cpf, nascimento) {
   return prisma.clientes.create({
-    data: { nome, cpf, nascimento },
+    data: nome,
+    cpf,
+    nascimento,
   });
 }
 

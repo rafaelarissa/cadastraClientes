@@ -1,11 +1,15 @@
-import customerRepository from "../repositories/customerRepository";
+import customerRepository from "../repositories/customerRepository.js";
 
 async function create(cliente) {
   // await validaCpf(cliente.cpf);
-
+  console.log(cliente);
   await customerRepository.insert({
     ...cliente,
   });
+}
+
+async function get() {
+  return await customerRepository.get();
 }
 
 // async function validaCpf(cpf) {
@@ -13,4 +17,5 @@ async function create(cliente) {
 //   console.log(cpfSeparado);
 // }
 
-export default { create };
+const customerService = { create, get };
+export default customerService;
